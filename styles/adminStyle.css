@@ -1,0 +1,78 @@
+.adminLogin {
+    min-height: 80vh;
+}
+
+.adminLoginContainer {
+    padding: 5% 0;
+    min-height: 100%;
+    width: 100%;
+}
+
+.adminLoginContainer h1 {
+    text-align: center;
+    font-weight: 400;
+}
+
+.adminLoginContainer .rightFormContainer {
+    width: 50%;
+    margin: 40px auto;
+}
+
+.adminDashboard {
+    margin: 150px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.adminDashboard a {
+    height: 50px;
+    width: 50%;
+    background: #2177aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: 2px solid #2177aa;
+    transition: all .25s linear;
+    border-radius: 4px;
+}
+
+.adminDashboard a:nth-child(2) {
+    background: transparent;
+    color: #2177aa;
+}
+
+.adminDashboard a:hover {
+    background: transparent;
+    color: #2177aa;
+}
+
+.adminDashboard a:nth-child(2):hover {
+    background: #2177aa;
+    color: white;
+
+}
+
+@media only screen and (max-width:800px) {
+    .adminLoginContainer .rightFormContainer {
+        width: 100%;
+    }
+
+    .adminDashboard {
+        flex-direction: column;
+
+    }
+
+    .adminDashboard a {
+        width: 100%;
+    }
+
+    .admin .container .title h1 {
+        font-size: 3rem;
+
+    }
+}

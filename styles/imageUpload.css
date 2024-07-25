@@ -1,0 +1,210 @@
+:root {
+    --primary: #2177aa;
+    --secondary: #4e4e4e;
+    --error: #14577e;
+}
+
+.admin {
+    min-height: 100vh;
+    padding: 5% 0;
+}
+
+.admin .logoutBtn {
+    float: right;
+}
+
+.admin .title h1 {
+    color: var(--primary);
+    font-size: 3vw;
+    letter-spacing: 2px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.admin .title h2,
+.admin .title p {
+    text-align: center;
+}
+
+.admin .title h2 {
+    margin-top: 60px;
+    font-size: 2.6rem;
+}
+
+/* upload form styles */
+.admin form {
+    margin: 30px auto 10px;
+    text-align: center;
+}
+
+.admin label input {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.admin label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 60px;
+    border: 1px solid var(--primary);
+    margin: 10px auto;
+    line-height: 30px;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 24px;
+    transition: all .25s linear;
+}
+
+.admin label:hover {
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+.admin .output {
+    height: 60px;
+    font-size: 0.8rem;
+}
+
+.admin .error {
+    color: var(--error);
+}
+
+.admin .imageTitleInput label {
+    border: 0;
+    color: black;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.admin .imageTitleInput label:hover {
+    background: unset;
+    color: unset;
+    cursor: unset;
+}
+
+.admin .imageTitleInput input {
+    border: 2px solid rgb(105, 105, 105);
+    color: black;
+    margin: 0 0 30px 0;
+    text-align: center;
+    height: 40px;
+    padding: 10px;
+    outline: 0;
+    border-radius: 3px;
+    /* max-width: 400px; */
+    width: 100%;
+}
+
+.admin .submitImg {
+    height: 50px;
+    padding: 10px 40px;
+    background: var(--primary);
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 4px;
+}
+
+/* progress bar styles */
+.admin .progress-bar {
+    height: 5px;
+    background: var(--primary);
+    margin-top: 20px;
+}
+
+/* image grid styles */
+.admin .img-grid {
+    margin: 20px auto;
+    display: grid;
+    align-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 40px;
+}
+
+.admin .img-wrap {
+    /* overflow: hidden; */
+    height: 20rem;
+    /* max-height: auto; */
+    width: 20rem;
+    /* padding: 50% 0; */
+    /* padding controls height, will always be perfectly square regardless of width */
+    position: relative;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media only screen and (max-width:800px) {
+    .admin .img-wrap {
+        margin: 30px auto;
+    }
+}
+
+.admin .img-wrap .img-title {
+    color: black !important;
+    font-size: 1.2rem;
+    max-width: 100%;
+    min-height: 100px;
+    word-wrap: break-word;
+    word-break: break-all;
+
+}
+
+.admin .img-wrap .img-container {
+    height: 80%;
+    width: 100%;
+
+}
+
+.admin .img-wrap img {
+    min-width: 100%;
+    height: 100%;
+    max-width: 100%;
+    position: relative;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+}
+
+/* modal styles */
+.admin .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.admin .backdrop p {
+    margin-top: 5%;
+    text-align: center;
+    color: rgb(238, 238, 238);
+    font-size: 2rem;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+@media only screen and (max-width:800px) {
+    .admin .backdrop p {
+        font-size: 1.2rem;
+    }
+}
+
+.admin .backdrop img {
+    display: block;
+    max-width: 60%;
+    max-height: 80%;
+    margin: 10px auto;
+    box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(34, 34, 34, 0.068);
+}
