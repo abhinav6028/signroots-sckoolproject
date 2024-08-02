@@ -1,6 +1,89 @@
+import axios from "axios";
 import Head from "next/head";
+import { useState } from "react";
 
 function admission() {
+
+  const initialState = {
+    name: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+    message: "",
+  };
+
+  const [values, setValues] = useState(initialState);
+
+  const { name, email, phoneNumber, subject, message } = values;
+
+  const [studentName, setStudentName] = useState()
+  const [guardianName, setGuardianName] = useState()
+  const [adress, setAdress] = useState();
+  const [dob, setDob] = useState()
+  const [Adhar, setAdhar] = useState()
+  const [studentPhoneNumber, setStudentPhoneNumber] = useState()
+
+
+
+
+
+
+  const handleFormSubmit = (e) => {
+    // e.preventDefault();
+    // // console.log("values", values);
+    // const data = {
+    //   service_id: "gmail",
+    //   template_id: "template_lblai0z",
+    //   user_id: "user_mEWvBp6teHQpXmSA2yZ19",
+    //   template_params: values,
+    // };
+
+    // fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // }).then(
+    //   (result) => {
+    //     console.log(result.text);
+    //   },
+    //   (error) => {
+    //     console.log(error.text);
+    //   }
+    // );
+
+    // alert("Thank you for contacting us, we will get back to you.");
+
+    // setValues(initialState);
+    // alert('/////////////')
+
+    e.preventDefault();
+
+    const data = {
+      Name: studentName,
+      Gardion: guardianName,
+      // Email: studentEmail,
+      Phone: studentPhoneNumber,
+      Adress: adress,
+      DOB: dob,
+      Adhar: Adhar
+    }
+
+    axios.post('https://sheet.best/api/sheets/aef03dc8-ef15-48e0-b6bb-ea7881275f7d', data).then((res) => {
+      alert("Succesfully registered")
+    })
+
+    // console.log("..............", data);
+    setStudentName('')
+    setGuardianName('')
+    setAdress('')
+    setDob('')
+    setAdhar('')
+    setStudentPhoneNumber('')
+  };
+
   return (
     <div>
       <Head>
@@ -121,11 +204,178 @@ function admission() {
               <li>🎈 IAS Orientation</li>
             </ul>
 
-            <div className="onlineRegisterLink">
-              <a href="https://forms.gle/WUcLa5varuDuC7hB6">
-                Online Registeration
-              </a>
-            </div>
+
+
+
+
+            <section className="contact-section sp-ten">
+              <div className="container">
+                <div className="contact-area">
+                  <div className="row">
+                    <div className="col-md-8 col-sm-12">
+                      <div className="right-side">
+
+                        <form >
+                          <div className="row clearfix">
+                            <div className="col-md-6 col-sm-12">
+                              <div className="form-group">
+                                <input
+                                  type="text"
+                                  name="name"
+                                  className="form-control"
+                                  placeholder="Student Name *"
+                                  required
+                                  onChange={(e) =>
+                                    setStudentName(e.target.value)
+                                  }
+                                // value={name}
+                                />
+                              </div>
+                            </div>
+                            <div className="col-md-6 col-sm-12">
+                              <div className="form-group">
+                                <input
+                                  type="text"
+                                  name="email"
+                                  className="form-control"
+                                  onChange={(e) =>
+                                    setGuardianName(e.target.value)
+                                  }
+                                  placeholder="Guardian Name *"
+                                  required
+                                // value={email}
+                                />
+                              </div>
+                            </div>
+                            <div className="col-md-6 col-sm-12">
+                              <div className="form-group">
+                                <input
+                                  type="date"
+                                  name="email"
+                                  className="form-control"
+                                  onChange={(e) =>
+                                    setDob(e.target.value)
+                                  }
+                                  placeholder="DOB *"
+                                  required
+                                // value={email}
+                                />
+                              </div>
+                            </div>
+                            <div className="col-md-6 col-sm-12">
+                              <div className="form-group">
+                                <input
+                                  type="text"
+                                  name="email"
+                                  className="form-control"
+                                  onChange={(e) =>
+                                    setAdhar(e.target.value)
+                                  }
+                                  placeholder="Adhar card number *"
+                                  required
+                                // value={email}
+                                />
+                              </div>
+                            </div>
+                            <div className="col-md-6 col-sm-12">
+                              <div className="form-group">
+                                <input
+                                  type="number"
+                                  name="phoneNumber"
+                                  className="form-control"
+                                  onChange={(e) =>
+                                    setStudentPhoneNumber(e.target.value)
+                                  }
+                                  placeholder="Your Phone Number *"
+                                  required
+                                // value={phoneNumber}
+                                />
+                              </div>
+                            </div>
+
+                            <div className="col-xl-12 col-sm-12">
+                              <div className="form-group">
+                                <textarea
+                                  name="message"
+                                  className="form-control textarea required"
+                                  required
+                                  placeholder="Adress"
+                                  onChange={(e) =>
+                                    setAdress(e.target.value)
+                                  }
+                                // value={message}
+                                ></textarea>
+                              </div>
+
+                              <div className="form-group form-bottom">
+                                <input
+                                  id="form_botcheck"
+                                  name="form_botcheck"
+                                  className="form-control"
+                                  type="hidden"
+                                  value=""
+                                />
+                                <button
+                                  className="thm-btn bg-clr1"
+                                  // type="submit"
+                                  data-loading-text="Please wait..."
+                                  onClick={handleFormSubmit}
+                                >
+                                  SUBMIT
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="map-area my-5">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31359.90365346875!2d76.03945759899267!3d10.735411299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7bf237d6b5f7f%3A0xeacbf498dca297b!2sMVMR%20Higher%20Secondary%20School!5e0!3m2!1sen!2sin!4v1618925996989!5m2!1sen!2sin"
+                    width="100%"
+                    height="400"
+                    style={{ border: "0" }}
+                    allowFullScreen=""
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <p className="moreInformation">
               തുടങ്ങി ഒട്ടേറെ സൗകര്യങ്ങൾ കൂടുതൽ വിവരങ്ങൾക്ക് :<br />
@@ -185,3 +435,10 @@ function admission() {
 }
 
 export default admission;
+
+
+// <div className="onlineRegisterLink">
+//   <a href="https://forms.gle/WUcLa5varuDuC7hB6">
+//     Online Registeration
+//   </a>
+// </div>
